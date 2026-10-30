@@ -4,7 +4,7 @@ Windows desktop floating monitor for estimating ChatGPT-related traffic routed t
 
 ## Download the source
 
-Download **[ClashArtMeter_DualBrowser_v2_PrivacyClean.zip](./ClashArtMeter_DualBrowser_v2_PrivacyClean.zip)** and extract it. The archive contains the complete Python source, tests, icons, Windows launcher, local build script, and project documentation.
+Download **[ClashArtMeter_DualBrowser_v2_Source.zip](./ClashArtMeter_DualBrowser_v2_Source.zip)** and extract it. The archive contains the Python application, tests, icons, Windows launcher, and local build script. This repository contains the usage and build documentation.
 
 ## Features
 
