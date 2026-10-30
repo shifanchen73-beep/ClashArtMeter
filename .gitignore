@@ -1,0 +1,14 @@
+settings.json
+history.sqlite3
+*.sqlite3
+*.db
+*.log
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+*.spec
+.DS_Store
