@@ -1,0 +1,38 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Extract source archive
+        shell: pwsh
+        run: |
+          Expand-Archive -Path .\ClashArtMeter_DualBrowser_v2_Source.zip -DestinationPath .\source -Force
+      - name: Run unit tests
+        shell: pwsh
+        run: |
+          Set-Location .\source\ClashArtMeter_DualBrowser
+          python -m unittest discover -s tests -v
+      - name: Install PyInstaller
+        run: python -m pip install "pyinstaller>=6.0,<7"
+      - name: Build portable Windows executable
+        shell: pwsh
+        run: |
+          Set-Location .\source\ClashArtMeter_DualBrowser
+          pyinstaller --noconfirm --clean --onefile --windowed --name ClashArtMeterDual --icon resources/app.ico app.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ClashArtMeter-DualBrowser-Windows-x64
+          path: source/ClashArtMeter_DualBrowser/dist/ClashArtMeterDual.exe
