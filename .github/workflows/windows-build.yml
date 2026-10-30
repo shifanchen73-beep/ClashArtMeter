@@ -16,10 +16,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Reassemble source archive
+        shell: pwsh
+        run: .\assemble_source.ps1
       - name: Extract source archive
         shell: pwsh
-        run: |
-          Expand-Archive -Path .\ClashArtMeter_DualBrowser_v2_Source.zip -DestinationPath .\source -Force
+        run: Expand-Archive -Path .\ClashArtMeter_DualBrowser_v2_Source.zip -DestinationPath .\source -Force
       - name: Run unit tests
         shell: pwsh
         run: |
