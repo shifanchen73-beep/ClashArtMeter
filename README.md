@@ -2,9 +2,9 @@
 
 Windows desktop floating monitor for estimating ChatGPT-related traffic routed through a local Clash/Mihomo controller. Designed for users who run ChatGPT in both Microsoft Edge and Google Chrome.
 
-## Get the source
+## Source package
 
-The source archive is stored as six Base64 parts in the source-archive folder to keep each GitHub upload small and verifiable. Download this repository using **Code → Download ZIP**, extract it, then double-click **assemble_source.bat**. It reconstructs ClashArtMeter_DualBrowser_v2_Source.zip. Extract that source ZIP to get the complete Python application, tests, icons, Windows launcher, and local build script.
+The complete source package is provided as **ClashArtMeter_DualBrowser_v2_Source.zip** in the repository root. Download it and extract it on Windows. It contains the Python application, tests, resources, Windows launcher, and local build script.
 
 ## Features
 
@@ -21,7 +21,7 @@ This is an estimate based on Clash connection snapshots and Windows TCP process 
 
 ## Build a Windows executable
 
-The GitHub Actions workflow reassembles the source archive, runs the 13 unit tests, and packages ClashArtMeterDual.exe with PyInstaller. Open **Actions → Build Windows EXE** to view the latest run and download its artifact.
+The GitHub Actions workflow runs the 13 unit tests and packages ClashArtMeterDual.exe with PyInstaller when the source ZIP is uploaded or when the workflow is manually started. Open **Actions → Build Windows EXE**, then download the artifact from the successful run.
 
 ## Local use
 
@@ -29,7 +29,7 @@ Inside the extracted ClashArtMeter_DualBrowser folder, double-click start_window
 
 ## Privacy
 
-- The repository excludes local settings, API Secret values, and traffic-history databases.
+- The source package and repository exclude local settings, API Secret values, and traffic-history databases.
 - Runtime settings and traffic history are stored locally under %LOCALAPPDATA%\\ClashArtMeter\\.
 - The app does not read browser cookies, login credentials, ChatGPT conversation text, or generated image contents.
 - API Secret is stored locally in the settings file in plaintext; protect access to your Windows user account and never upload that settings file.
